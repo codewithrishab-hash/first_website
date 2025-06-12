@@ -167,13 +167,20 @@
     </section>
 
     <section>
-      <h2>📬 Contact Me</h2>
-      <form onsubmit="alert('Message Sent!'); return false;">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      <section>
+  <h2>📬 Contact Me</h2>
+  <p>Want to get in touch? Just fill out this form and I’ll get back to you!</p>
+  <form action="https://formspree.io/f/xpwrdrjj" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+
+    <!-- Redirect to Thank You page after form submission -->
+    <input type="hidden" name="_redirect" value="https://codewithrishab-hash.github.io/first_website/thankyou.html" />
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
     </section>
   </div>
 
