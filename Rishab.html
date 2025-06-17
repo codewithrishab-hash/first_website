@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rishab Editz Ultimate Logo Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Pacifico&family=Bebas+Neue&family=Rubik+Moonrocks&family=Monoton&display=swap" rel="stylesheet" />
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<style>
+  * {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+  .container {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.3);
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.8rem;
+    background: linear-gradient(to right, #ff00cc, #3333ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+  }
+  input, select {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+  button {
+    padding: 10px 18px;
+    font-size: 16px;
+    background: #ff0055;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0.3rem 0.5rem;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #ff3399;
+  }
+  #logo {
+    margin-top: 2rem;
+    font-weight: 700;
+    min-height: 60px;
+    font-size: 40px;
+    text-shadow: 2px 2px 10px #000;
+    transition: all 0.3s ease-in-out;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* Glow styles */
+  .glow {
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+    text-shadow:
+      0 0 5px #ff00cc,
+      0 0 10px #ff00cc,
+      0 0 20px #ff00cc,
+      0 0 30px #ff3399,
+      0 0 40px #ff3399,
+      0 0 50px #ff3399,
+      0 0 60px #ff3399;
+  }
+  @keyframes neonGlow {
+    from {
+      text-shadow:
+        0 0 10px #ff00cc,
+        0 0 20px #ff00cc,
+        0 0 30px #ff3399,
+        0 0 40px #ff3399,
+        0 0 50px #ff3399;
+    }
+    to {
+      text-shadow:
+        0 0 20px #ff66cc,
+        0 0 30px #ff66cc,
+        0 0 40px #ff66cc,
+        0 0 50px #ff66cc,
+        0 0 60px #ff66cc;
+    }
+  }
+  /* Loading Spinner */
+  #spinner {
+    margin: 1rem auto 0;
+    border: 6px solid rgba(255,255,255,0.15);
+    border-top: 6px solid #ff3399;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    display: none;
+  }
+  @keyframes spin {
+    100% { transform: rotate(360deg); }
+  }
+  /* Social Buttons */
+  .socials {
+    margin-top: 1.5rem;
+  }
+  .socials button {
+    background: #333;
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .socials button:hover {
+    background: #ff3399;
+  }
+  /* Responsive */
+  @media (max-width: 480px) {
+    .container {
+      padding: 1.5rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    #logo {
+      font-size: 32px;
+      min-height: 50px;
+    }
+    input, select {
+      font-size: 14px;
+      padding: 10px;
+    }
+    button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🔥 Rishab Editz Ultimate</h1>
+
+  <input type="text" id="prompt" placeholder="Enter your logo text..." autocomplete="off" />
+
+  <select id="fontSelector" title="Choose Font">
+    <option value="'Orbitron', sans-serif">Orbitron</option>
+    <option value="'Pacifico', cursive">Pacifico</option>
+    <option value="'Bebas Neue', sans-serif">Bebas Neue</option>
+    <option value="'Rubik Moonrocks', cursive">Rubik Moonrocks</option>
+    <option value="'Monoton', cursive">Monoton</option>
+  </select>
+
+  <select id="colorSelector" title="Choose Gradient Color">
+    <option value="linear-gradient(90deg, #ff00cc, #3333ff)">Pink-Blue</option>
+    <option value="linear-gradient(90deg, #00ffcc, #ff0099)">Aqua-Pink</option>
+    <option value="linear-gradient(90deg, #00ffff, #ffcc00)">Cyan-Yellow</option>
+    <option value="linear-gradient(90deg, #ffffff, #00ffcc)">White-Aqua</option>
+    <option value="linear-gradient(90deg, #ff6600, #ff0000)">Orange-Red</option>
+  </select>
+
+  <div>
+    <button id="generateBtn">Generate</button>
+    <button id="downloadBtn">Download</button>
+    <button id="glowToggleBtn">Toggle Glow</button>
+  </div>
+
+  <div id="spinner"></div>
+  <div id="logo">Your Logo Appears Here</div>
+
+  <div class="socials">
+    <button id="shareWhatsapp" title="Share on WhatsApp" aria-label="Share on WhatsApp">📲</button>
+    <button id="shareInsta" title="Share on Instagram Story" aria-label="Share on Instagram Story">📸</button>
+  </div>
+</div>
+
+<footer>
+  Made with 💖 by <span>Rishab</span>
+</footer>
+
+<script>
+  const logo = document.getElementById('logo');
+  const promptInput = document.getElementById('prompt');
+  const fontSelector = document.getElementById('fontSelector');
+  const colorSelector = document.getElementById('colorSelector');
+  const spinner = document.getElementById('spinner');
+  const glowToggleBtn = document.getElementById('glowToggleBtn');
+
+  let glowOn = true;
+
+  function setLogoStyle(text, font, gradient) {
+    logo.style.fontFamily = font;
+    logo.style.background = gradient;
+    logo.style.webkitBackgroundClip = 'text';
+    logo.style.webkitTextFillColor = 'transparent';
+    if (glowOn) {
+      logo.classList.add('glow');
+    } else {
+      logo.classList.remove('glow');
+      logo.style.textShadow = '2px 2px 10px #000';
+    }
+    logo.textContent = text;
+  }
+
+  function typingAnimation(text, font, gradient, callback) {
+    let index = 0;
+    logo.textContent = '';
+    logo.style.fontFamily = font;
+    logo.style.background = gradient;
+    logo.style.webkitBackgroundClip = 'text';
+    logo.style.webkitTextFillColor = 'transparent';
+    if (glowOn) {
+      logo.classList.add('glow');
+    } else {
+      logo.classList.remove('glow');
+      logo.style.textShadow = '2px 2px 10px #000';
+    }
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        logo.textContent += text[index++];
+      } else {
+        clearInterval(interval);
+        if (callback) callback();
+      }
+    }, 100);
+  }
+
+  function showSpinner(show) {
+    spinner.style.display = show ? 'block' : 'none';
+  }
+
+  document.getElementById('generateBtn').addEventListener('click', () => {
+    const text = promptInput.value.trim();
+    const font = fontSelector.value;
+    const gradient = colorSelector.value;
+    if (!text) {
+      alert('Please type something first!');
+      return;
+    }
+    showSpinner(true);
+    setTimeout(() => {
+      showSpinner(false);
+      typingAnimation(text, font, gradient);
+    }, 1200); // simulate loading
+  });
+
+  document.getElementById('downloadBtn').addEventListener('click', () => {
+    if (!logo.textContent.trim() || logo.textContent === "Your Logo Appears Here") {
+      alert('Generate logo first!');
+      return;
+    }
+    html2canvas(logo).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'rishab-logo.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  });
+
+  glowToggleBtn.addEventListener('click', () => {
+    glowOn = !glowOn;
+    if (logo.textContent.trim() && logo.textContent !== "Your Logo Appears Here") {
+      setLogoStyle(logo.textContent, fontSelector.value, colorSelector.value);
+    }
+  });
+
+  // Social share buttons
+
+  document.getElementById('shareWhatsapp').addEventListener('click', () => {
+    if (!logo.textContent.trim() || logo.textContent === "Your Logo Appears Here") {
+      alert('Generate logo first!');
+      return;
+    }
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(`Check out my logo made with Rishab Editz:\n"${logo.textContent}"\n${url}`);
+    window.open(`https://wa.me/?text=${text}`, '_blank');
+  });
+
+  document.getElementById('shareInsta').addEventListener('click', () => {
+    alert('Instagram Story sharing coming soon! For now, download the logo and share manually.');
+  });
+
+</script>
+
+</body>
+</html>
