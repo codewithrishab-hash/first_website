@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="google-site-verification" content="OG--XTuxCho6Zbj55aynoqK9GQQY6QZtQPfUgmAQ4f0" />
   <title>Rishab ka Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
       --bg-light: #f0f0f0;
@@ -132,6 +132,33 @@
       color: var(--accent);
     }
 
+    .footer {
+      text-align: center;
+      padding: 30px 10px;
+      background: var(--card-light);
+      color: var(--text-light);
+      transition: 0.4s ease;
+    }
+
+    .dark .footer {
+      background: var(--card-dark);
+      color: var(--text-dark);
+    }
+
+    .footer a {
+      margin: 0 10px;
+      font-size: 1.5em;
+      color: var(--accent);
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .footer a:hover {
+      transform: scale(1.2);
+      color: #ff6b81;
+      text-shadow: 0 0 8px #ff6b81;
+    }
+
     @media (max-width: 600px) {
       h1, #typewriter { font-size: 2em; }
     }
@@ -167,20 +194,41 @@
     </section>
 
     <section>
-      <section>
-  <section>
-  <h2>📬 Contact Me</h2>
-  <p>Want to get in touch? Just fill out this form and I’ll get back to you!</p>
-  <form action="https://formspree.io/f/xgvykypk" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-</section>
+      <h2>📬 Contact Me</h2>
+      <form onsubmit="alert('Message Sent!'); return false;">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>📷 Connect with Me</h2>
+      <p>
+        Follow me on Instagram:  
+        <a href="https://instagram.com/vibewith_riishab_18" target="_blank">@vibewith_riishab_18</a>
+      </p>
+      <img src="qr-code.png" alt="Instagram QR Code" style="width: 200px; border-radius: 10px; margin-top: 10px;" />
+    </section>
+
+    <section>
+      <h2>👑 About Me</h2>
+      <p style="font-size: 1.2em; font-weight: bold;">
+        "Ek simple ladka coding ki duniya mein apni kahani likh raha hai — naam hai Rishab, aur sapna hai legend banne ka."
+      </p>
     </section>
   </div>
+
+  <footer class="footer">
+    <p>🔗 Stay connected with me</p>
+    <div>
+      <a href="https://instagram.com/vibewith_riishab_18" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:vibewithriishab@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/codewithrishab-hash" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+    <p style="margin-top: 10px; font-size: 0.9em;">© 2025 Rishab | Made with ❤️ by @vibewith_riishab_18</p>
+  </footer>
 
   <script>
     function toggleMode() {
